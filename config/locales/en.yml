@@ -20,4 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  sessions_controller:
+    invalid_login_attempt: 'Login is invalid.'
+  comment_not_found_error: 'Comment cannot be found.'
+  story_not_found_error: 'Story cannot be found.'

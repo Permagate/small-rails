@@ -2,11 +2,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :validatable
 
   after_create :update_access_token!
-  
-  has_many :stories
-
-  validates :username, presence: true
-  validates :email, presence: true
 
   private
 

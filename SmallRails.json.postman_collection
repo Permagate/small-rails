@@ -140,7 +140,7 @@
 			"description": "",
 			"collectionId": "68e43534-211f-d6c8-b216-f8c7ce5305bd",
 			"responses": [],
-			"rawModeData": "{\n    \"comment\": {\n        \"content\": \"Hohohaha\",\n        \"story\": 20\n    }\n}\n"
+			"rawModeData": "{\n    \"comment\": {\n        \"content\": \"Hohohaha\",\n        \"story_id\": 20\n    }\n}\n"
 		},
 		{
 			"id": "9e713792-1046-f3a5-edf4-579526c7b666",

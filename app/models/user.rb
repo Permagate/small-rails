@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :validatable
 
+  has_many :likes
+
   after_create :update_access_token!
 
   private

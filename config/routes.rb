@@ -8,10 +8,16 @@ Rails.application.routes.draw do
       collection do
         get 'me', to: :owned
       end
+      member do
+        post 'like'
+      end
     end
     resources :comments, only: [:create, :update, :destroy] do
       collection do
         get 'me', to: :owned
+      end
+      member do
+        post 'like'
       end
     end
   end

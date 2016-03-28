@@ -1,6 +1,6 @@
 module V1
   class CommentsController < ApplicationController
-    before_action :set_comment, only: [:update, :destroy]
+    before_action :set_comment, only: [:update, :destroy, :like]
 
     # GET /v1/comments/me
     def owned
@@ -32,6 +32,16 @@ module V1
     def destroy
       @comment.destroy
       render json: {}, status: :ok
+    end
+
+    # POST /v1/comments/:id/like
+    def like
+      begin
+        @comment.like(current_user)
+        render json: {}, status: :ok
+      rescue => e
+        render json: { error: 'Already likes the comment.' }, status: :unprocessable_entity
+      end
     end
 
     private

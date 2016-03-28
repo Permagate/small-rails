@@ -1,7 +1,7 @@
 module V1
   class StoriesController < ApplicationController
     skip_before_action :authenticate_user_from_token!, only: [:index, :show]
-    before_action :set_story, only: [:show, :update, :destroy]
+    before_action :set_story, only: [:show, :update, :destroy, :like]
 
     # GET /v1/stories
     def index
@@ -44,6 +44,16 @@ module V1
     def destroy
       @story.destroy
       render json: {}, status: :ok
+    end
+
+    # POST /v1/stories/:id/like
+    def like
+      begin
+        @story.like(current_user)
+        render json: {}, status: :ok
+      rescue => e
+        render json: { error: 'Already likes the story.' }, status: :unprocessable_entity
+      end
     end
     
     private

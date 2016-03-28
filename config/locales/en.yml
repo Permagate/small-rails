@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  application_controller:
+    unauthorized: 'You are not authorized to access this endpoint.'
   sessions_controller:
     invalid_login_attempt: 'Login is invalid.'
   comment_not_found_error: 'Comment cannot be found.'

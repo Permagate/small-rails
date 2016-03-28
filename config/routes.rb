@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   namespace :v1, defaults: { format: :json } do
     resource :login, controller: :sessions
-    resources :users
+    resources :users, only: [:create]
     resources :stories do
       collection do
         get 'me', to: :owned

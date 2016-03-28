@@ -1,8 +1,8 @@
 class Comment < ActiveRecord::Base
+  include Likeable
 
   belongs_to :story
   belongs_to :user
-  has_many :likes, as: :likeable
 
   validates :content, presence: true
   validates :user, presence: true
@@ -10,9 +10,5 @@ class Comment < ActiveRecord::Base
 
   scope :latest, -> { order(created_at: :desc) }
   scope :owned_by, -> (user) { where(user: user) }
-
-  def like(user)
-    self.likes.build(user_id: user.id).save
-  end
 
 end

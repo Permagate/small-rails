@@ -2,7 +2,7 @@ module V1
   class StoriesController < ApplicationController
     # GET /v1/stories
     def index
-      @stories = Story.latest.all
+      @stories = Story.order(created_at: :desc).where(user: current_user)
       render json: @stories, each_serializer: StoriesSerializer
     end
 
